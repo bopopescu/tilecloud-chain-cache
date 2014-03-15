@@ -1,0 +1,16 @@
+#!/usr/bin/python
+
+import sys
+sys.path[0:0] = [
+    '/home/sbrunner/workspace/tilecloud-chain/buildout/eggs/flake8-2.1.0-py2.7.egg',
+    '/home/sbrunner/workspace/tilecloud-chain/buildout/eggs/mccabe-0.2.1-py2.7.egg',
+    '/home/sbrunner/workspace/tilecloud-chain/buildout/eggs/pep8-1.4.6-py2.7.egg',
+    '/home/sbrunner/workspace/tilecloud-chain/buildout/eggs/distribute-0.6.35-py2.7.egg',
+    '/home/sbrunner/workspace/tilecloud-chain/buildout/eggs/pyflakes-0.7.3-py2.7.egg',
+    ]
+
+
+import flake8.run
+
+if __name__ == '__main__':
+    sys.exit(flake8.run.main())
