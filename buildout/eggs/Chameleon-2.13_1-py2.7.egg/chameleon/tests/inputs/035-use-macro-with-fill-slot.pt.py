@@ -106,11 +106,11 @@ def render(stream, econtext, rcontext):
     else:
         _slots.append(_slot_title)
 
-    # <Expression u"load('032-master-template.pt').macros['main']" (1:23)> -> _macro
+    # <Expression u"load('032-main-template.pt').macros['main']" (1:23)> -> _macro
     try:
-        _macro = getitem('load')('032-master-template.pt').macros['main']
+        _macro = getitem('load')('032-main-template.pt').macros['main']
     except:
-        rcontext.setdefault('__error__', []).append((u"load('032-master-template.pt').macros['main']", 1, 23, '<string>', _sys.exc_info()[1], ))
+        rcontext.setdefault('__error__', []).append((u"load('032-main-template.pt').macros['main']", 1, 23, '<string>', _sys.exc_info()[1], ))
         raise
 
     _macro.include(stream, econtext.copy(), rcontext)

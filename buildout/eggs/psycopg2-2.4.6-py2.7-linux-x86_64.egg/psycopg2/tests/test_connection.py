@@ -124,15 +124,15 @@ class ConnectionTests(unittest.TestCase):
 
     @skip_before_postgres(8, 2)
     def test_concurrent_execution(self):
-        def slave():
+        def subordinate():
             cnn = psycopg2.connect(dsn)
             cur = cnn.cursor()
             cur.execute("select pg_sleep(4)")
             cur.close()
             cnn.close()
 
-        t1 = threading.Thread(target=slave)
-        t2 = threading.Thread(target=slave)
+        t1 = threading.Thread(target=subordinate)
+        t2 = threading.Thread(target=subordinate)
         t0 = time.time()
         t1.start()
         t2.start()
